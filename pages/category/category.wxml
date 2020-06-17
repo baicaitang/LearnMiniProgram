@@ -1,0 +1,3 @@
+<!--pages/categary/category.wxml-->
+<view>category</view>
+<view wx:for="{{list}}">{{item.title}}</view>
