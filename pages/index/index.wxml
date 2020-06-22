@@ -1,13 +1,29 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+
+  <view>
+  <!-- 默认text中的文本不能长按选中 https://developers.weixin.qq.com/miniprogram/dev/component/text.html-->
+    <text>{{motto}}\n</text>
+    <text selectable="{{true}}">hhhhhhh\nxxxxx</text>
+    <text selectable >hhhhhhh\nxxxxx</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+  <view hover-class="abc">hello</view>
+  <image src="../../assets/images/common/favor.png"/>
+
+  <view>-------------</view>
+
+  <tab-control titles="{{['流行','新款','精选']}}" bind:itemclick="handleItemClick" tit="tit" />
+
+<button class="btn" size="mini" bind:tap="handlecounter">页面的按钮点击改变组件内的数据</button>
+<!-- 给组件绑定id，给页面拿到组件对象this.electComponent -->
+  <selectcomponent id="sel" />
+<view>---------</view>
+<my-slot>
+  <button size="mini" class="btn">slot</button>
+</my-slot>
+
+<my-mslot>
+<button class="btn" size="mini" slot="slot2">多插槽</button>
+<slider slot="slot1"></slider>
+<text slot="slot3">hahahahha</text>
+</my-mslot>
+

@@ -7,9 +7,29 @@ Page({
     motto: '哈哈哈哈',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    counter:0
   },
   //事件处理函数
+  handleItemClick(event){
+    console.log(event)
+  },
+  handlecounter(event){
+    // console.log(event)
+    // 拿到组件对象
+    const sel = this.selectComponent('#sel')
+    console.log(sel)
+    // 不推荐直接修改数据
+    // sel.setData({
+      // counter:sel.data.counter + 20
+    // })
+    sel.increateCounter(10)
+  },
+
+
+
+
+
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
