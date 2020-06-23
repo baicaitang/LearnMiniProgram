@@ -1,4 +1,6 @@
 //index.js
+import request from '../../service/network.js'
+
 //获取应用实例
 const app = getApp()
 
@@ -26,42 +28,35 @@ Page({
     sel.increateCounter(10)
   },
 
-
-
-
-
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+  getOriginRequest(){
+    wx.request({
+      url: '',
+      data:'',
+      success:res=>{
+
+      },
+      method:'GET'
+    })
+  },
+  onLoad: function (options) {
+    // 原生获取网络请求
+    this.getOriginRequest()
+
+    // 使用封装的request发送网络请求,降低网络请求的耦合度
+    // Promise可以防止回调地狱
+    request({
+      url:'http://152.136.185.210:8000/api/n3/recommend'
+    }).then(res=>{
+      console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
+    
   },
   getUserInfo: function(e) {
     console.log(e)

@@ -1,0 +1,9 @@
+<!--pages/home/home.wxml-->
+<!-- <text>pages/home/home.wxml</text> -->
+<button class="btn" bind:tap="test">btn</button>
+<button size="mini" class="btn" bind:tap="handleToast">toast</button>
+<button size="mini" class="btn" bind:tap="handleModal">modal</button>
+<button size="mini" class="btn" bind:tap="handleLoding">loding</button>
+<button size="mini" class="btn" bind:tap="handleActionSheet">actionsheet</button>
+<!-- 分享按钮 -->
+<button size="mini" class="btn" open-type="share">share</button>
