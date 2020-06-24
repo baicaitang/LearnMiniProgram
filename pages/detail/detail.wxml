@@ -1,0 +1,5 @@
+<!--pages/detail/detail.wxml-->
+<text>pages/detail/detail.wxml</text>
+<navigator url="/pages/comment/comment">commentPage</navigator>
+<navigator open-type="navigateBack" >back</navigator>
+<button class="btn" bind:tap="handleBack">back</button>

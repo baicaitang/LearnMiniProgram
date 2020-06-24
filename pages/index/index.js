@@ -4,7 +4,11 @@ const app = getApp()
 
 Page({
   data: {
-   
+   title:''
   },
- 
+  handleToPage(){
+   wx.navigateTo({
+     url: '/pages/detail/detail?text=hello',
+   })
+  }
 })
